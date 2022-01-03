@@ -1,0 +1,15 @@
+.invoices-container {
+    width: 50%;
+    margin-top: toRem(72);
+    
+    @include respond(tab-land) {
+        width: 55%;
+    }
+
+    @include respond(tab-port) {
+        margin-top: toRem(132);
+        width: 100%;
+        padding: 0 5.3%;
+    }
+
+}

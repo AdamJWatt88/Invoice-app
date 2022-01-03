@@ -1,0 +1,76 @@
+.status-edit-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    @include boxShadow;
+    background-color: #fff;
+    padding: toRem(20) toRem(32);
+    margin-top: toRem(35);
+    
+    @include respond(tab-land) {
+        padding: toRem(20) toRem(16);
+    } 
+    
+    &__status {
+        display: flex;
+        align-items: center;
+
+        @include respond(phone) {
+            width: 100%;
+        }
+
+        & > h3 {
+            @include font12Medium;
+            color: $color-cool-grey;
+        }
+
+        & > .status-badge {
+            margin-left: toRem(22);
+
+            @include respond(phone) {
+                margin-left: auto;
+            }
+        }
+    }
+
+    &__btn-group {
+        margin-left: auto;
+        
+        & > .btn {
+            margin-left: toRem(8);
+        }
+
+        & > .btn--white {
+            @include respond(phone) {
+                flex: 1;
+            }
+        }
+
+        & > .btn--red {
+            @include respond(phone) {
+                flex: 2;
+            }
+        }
+
+        & > .btn--purple {
+            @include respond(phone) {
+                flex: 2;
+            }
+        }
+
+        @include respond(phone) {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            padding: toRem(21) toRem(24);
+            background-color: #fff;
+            width: 116%;
+            margin-left: -12%;
+            bottom: -80vh;
+        }
+
+    }
+    
+}
+

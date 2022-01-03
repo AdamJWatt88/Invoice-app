@@ -1,0 +1,99 @@
+.invoice-status-bar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &__invoices-heading {
+        font-size: unquote("clamp(1.25rem, 1.0000rem + 1.1111vw, 2rem)");
+        font-weight: $font-bold;
+        letter-spacing: -.0312em;
+        margin-bottom: toRem(12);
+
+        & + p {
+            color: $color-cool-grey;
+            @include font12Medium;
+        }
+
+    }
+
+    &__filter {
+        position: relative;
+        margin-left: auto;
+        margin-right: toRem(40.5);
+        @include font12Bold;
+        cursor: pointer;
+
+        @include respond(phone) {
+            margin-right: toRem(18.5);
+        }
+
+        &-menu {
+            visibility: hidden;
+            cursor: default;
+            background-color: #fff;
+            padding: toRem(24) toRem(24);
+            position: absolute;
+            border-radius: 8px;
+            width: 132%;
+            transform: translate(-4%, 20%);
+            box-shadow: 0px 0px 5px rgba(0,0,0, .4);
+
+            @include respond(phone) {
+                width: 205%;
+            }
+
+            &--open {
+                visibility: visible;
+            }
+        }
+
+    }
+
+    &__form-group {
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+        &:not(:last-child) {
+            margin-bottom: toRem(16);
+        }
+
+        & > input {
+            cursor: pointer;
+            margin-right: toRem(13);
+        }
+
+    }
+    
+    &__new-btn {
+        position: relative;
+        border-radius: toRem(24);
+        border-style: none;
+        background-color: $color-medium-slate-blue;
+        @include font12Bold;
+        color: #fff;
+        padding: toRem(17) toRem(31) toRem(19) toRem(57);
+    }
+
+}
+
+.plus-icon {
+    position: absolute;
+    transform: translate(-150%, -25%);
+    border-radius: 100px;
+    background-color: #fff;
+    padding: toRem(11);
+}
+
+.arrow-down-icon {
+    margin-left: toRem(35);
+    transition: transform .2s;
+
+    @include respond(phone) {
+        margin-left: toRem(12);
+    }
+
+    &--rotate {
+        transform: rotate(180deg);
+    }
+}

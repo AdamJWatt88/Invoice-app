@@ -1,0 +1,30 @@
+.empty-invoices {
+    display: flex;
+    width: 33%;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: toRem(144) auto;
+
+    @include respond(phone) {
+        margin-top: toRem(104);
+        width: 63%;
+    }
+
+    &__image {
+        height: auto;
+        width: 100%;
+        margin-bottom: toRem(64.5);
+    }
+
+    &__heading {
+        font-size: toRem(20);
+        font-weight: $font-bold;
+        letter-spacing: -.0312em;
+        margin-bottom: toRem(26);
+    }
+
+    &__body {
+        @include font12Medium;
+    }
+}

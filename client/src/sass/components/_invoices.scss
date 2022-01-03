@@ -1,0 +1,118 @@
+.invoices {
+    width: 100%;
+    height: 75%;
+    margin-top: toRem(68);
+    overflow-y: auto;
+    padding: 5px;
+
+    @include customScroll;
+    
+    & a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        &:not(:last-child){
+            margin-bottom: toRem(16);
+        }
+    }
+
+    &__invoice {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 8px;
+        width: 100%;
+        padding: toRem(16) toRem(24) toRem(16) toRem(32);
+        cursor: pointer;
+        @include boxShadow;
+
+        @include respond(tab-land) {
+            padding: toRem(16) toRem(12) toRem(16) toRem(16);
+        }
+
+        @include respond(phone) {
+            flex-wrap: wrap;
+            padding: toRem(24);
+        }
+
+        &-id,
+        &-date,
+        &-name,
+        &-total,
+        &-status {
+           flex: 1;
+        
+            @include respond(phone) {
+                flex-basis: 50%;
+            }
+        }
+
+        &-id {
+            @include font12Bold;
+
+            @include respond(phone) {
+                margin-bottom: toRem(27);
+                order: 1;
+            }
+        }
+
+        &-date {
+            @include font12Medium;
+            white-space: nowrap;
+            color: $color-glaucous;
+
+            @include respond(phone) {
+                margin-bottom: toRem(25);
+                order: 3;
+            }
+        }
+
+        &-name {
+            flex: 2;
+            text-align: left;
+            @include font12Medium;
+            white-space: nowrap;
+            color: $color-cool-grey;
+
+            @include respond(phone) {
+                margin-bottom: toRem(27);
+                text-align: right;
+                order: 2;
+                flex: 1;
+            }
+        }
+
+        &-total {
+            text-align: right;
+
+            @include respond(phone) {
+                order: 5;
+                text-align: left;
+                margin-top: toRem(-19.2);
+            }
+        }
+
+        & > .status-badge {
+            margin-left: toRem(40);
+
+            @include respond(tab-land) {
+                margin-left: toRem(20);
+            }
+        
+            @include respond(phone) {
+                margin-left: 0;
+                flex: 1;
+                order: 4;
+            }
+        }
+
+        &-arrow {
+            margin-left: toRem(20);
+
+            @include respond(phone) {
+                display: none;
+            }
+        }
+
+    }
+}
