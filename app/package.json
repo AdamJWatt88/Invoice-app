@@ -23,13 +23,13 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    // "start": "concurrently \"react-scripts start\" \"json-server -p 3001 -w db.json\" ",
     "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "compile:sass": "node-sass src/sass/main.scss src/css/style.css -w"
   },
+   "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": [
       "react-app",
