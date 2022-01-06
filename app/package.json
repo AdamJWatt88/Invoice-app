@@ -23,7 +23,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"json-server -p 3001 -w db.json\" ",
+    // "start": "concurrently \"react-scripts start\" \"json-server -p 3001 -w db.json\" ",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
