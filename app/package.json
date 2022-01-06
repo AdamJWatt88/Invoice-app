@@ -9,6 +9,8 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.22.0",
+    "concurrently": "^7.0.0",
+    "json-server": "^0.17.0",
     "luxon": "^2.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,7 +23,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"json-server -p 3001 -w db.json\" ",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
