@@ -1,4 +1,6 @@
 {
   "invoices": [
-     ]
+    { "id": "AG1234",
+    "status": "draft"}
+  ]
 }
