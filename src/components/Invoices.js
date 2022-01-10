@@ -25,8 +25,7 @@ const Invoices = () => {
     heading,
     message,
   } = errorContext;
-  const { clearInvoice, filtered, getInvoices, invoices, loading } =
-    invoicesContext;
+  const { filtered, getInvoices, invoices, loading } = invoicesContext;
   const { openModal } = modalContext;
 
   useEffect(() => {

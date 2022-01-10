@@ -1,4 +1,7 @@
 .side-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     left: 0;
     top: 0;
@@ -7,16 +10,12 @@
     background-color: $color-space-cadet-2;
     border-top-right-radius: toRem(20);
     border-bottom-right-radius: toRem(20);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     z-index: 200;
 
-    @include respond(tab-port) {
-        position: absolute;
-        top: 0;
+    @include respond(tab-port) { 
+        position: fixed;
         width: 100%;
-        height: toRem(80);
+        height: toRem(72);
         flex-direction: row;
         align-items: center;
         justify-content: center;
@@ -34,8 +33,8 @@
         width: 100%;
 
         @include respond(tab-port) {
-            height: toRem(80);
-            width: toRem(80);
+            height: toRem(72);
+            width: toRem(72);
         }
 
         &::after {
