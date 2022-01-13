@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import history from "../../history";
 
-import invoices from "../../apis/invoices";
+import axios from "axios";
 import InvoicesContext from "./InvoicesContext";
 import InvoicesReducer from "./invoicesReducer";
 
@@ -39,7 +39,13 @@ const InvoicesState = (props) => {
     setLoading();
 
     try {
-      const res = await invoices.get("/invoices");
+      const devEnv = process.env.NODE_ENV !== "production";
+      const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
+      const res = await axios.get(
+        `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
+      );
+
+      console.log(process.env.NODE_ENV);
 
       dispatch({
         type: FETCH_INVOICES,
@@ -57,7 +63,11 @@ const InvoicesState = (props) => {
     setLoading();
 
     try {
-      const res = await invoices.get(`/invoices/${invoiceId}`);
+      const devEnv = process.env.NODE_ENV !== "production";
+      const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
+      const res = await axios.get(
+        `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/${invoiceId}`
+      );
       dispatch({
         type: FETCH_INVOICE,
         payload: res.data,
@@ -87,7 +97,12 @@ const InvoicesState = (props) => {
     setLoading();
 
     try {
-      const res = await invoices.post("/invoices", { ...invoiceForm });
+      const devEnv = process.env.NODE_ENV !== "production";
+      const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
+      const res = await axios.post(
+        `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`,
+        { ...invoiceForm }
+      );
 
       dispatch({
         type: NEW_INVOICE,
@@ -105,10 +120,15 @@ const InvoicesState = (props) => {
     setLoading();
 
     try {
-      const res = await invoices.patch(`/invoices/${id}`, {
-        ...invoiceForm,
-        status: status,
-      });
+      const devEnv = process.env.NODE_ENV !== "production";
+      const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
+      const res = await axios.patch(
+        `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/${id}`,
+        {
+          ...invoiceForm,
+          status: status,
+        }
+      );
 
       dispatch({
         type: EDIT_INVOICE,
@@ -126,7 +146,11 @@ const InvoicesState = (props) => {
     setLoading();
 
     try {
-      const res = await invoices.delete(`/invoices/${id}`);
+      const devEnv = process.env.NODE_ENV !== "production";
+      const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
+      const res = await axios.delete(
+        `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/${id}`
+      );
 
       dispatch({
         type: DELETE_INVOICE,

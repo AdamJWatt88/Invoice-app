@@ -46,6 +46,7 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Transition Group
+- json-server
 - [React](https://reactjs.org/) - JS library
 - Context
 - Yup

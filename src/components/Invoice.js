@@ -25,7 +25,9 @@ const Invoice = ({ match }) => {
     const invoiceId = match.params.id;
 
     getInvoices();
-    getInvoice(invoiceId);
+    setTimeout(() => {
+      getInvoice(invoiceId);
+    }, 500);
 
     // eslint-disable-next-line
   }, []);
