@@ -17,7 +17,8 @@ const middlewares = jsonServer.defaults();
 const router = jsonServer.router("db.json");
 const port = process.env.PORT || 3000;
 
-app.use(process.env.REACT_APP_PROD_URL, middlewares, router);
+app.use(middlewares);
+app.use(router);
 app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/*", function (req, res) {
