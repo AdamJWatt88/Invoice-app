@@ -18,7 +18,7 @@ const middlewares = jsonServer.defaults();
 const router = jsonServer.router("db.json");
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json({ extended: false }));
+app.use(express.json({ extended: true }));
 
 app.use(express.static(__dirname + "/build"));
 
