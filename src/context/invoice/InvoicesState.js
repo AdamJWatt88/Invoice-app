@@ -47,10 +47,12 @@ const InvoicesState = (props) => {
         `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
       );
 
-      dispatch({
-        type: FETCH_INVOICES,
-        payload: res.data,
-      });
+      console.log(res);
+
+      // dispatch({
+      //   type: FETCH_INVOICES,
+      //   payload: res.data,
+      // });
     } catch (error) {
       dispatch({
         type: INVOICE_ERROR,
