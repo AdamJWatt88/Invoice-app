@@ -45,8 +45,6 @@ const InvoicesState = (props) => {
         `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
       );
 
-      console.log(process.env.NODE_ENV);
-
       dispatch({
         type: FETCH_INVOICES,
         payload: res.data,
@@ -68,6 +66,7 @@ const InvoicesState = (props) => {
       const res = await axios.get(
         `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/${invoiceId}`
       );
+
       dispatch({
         type: FETCH_INVOICE,
         payload: res.data,

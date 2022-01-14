@@ -27,7 +27,7 @@ const Invoice = ({ match }) => {
     getInvoices();
     setTimeout(() => {
       getInvoice(invoiceId);
-    }, 500);
+    }, 100);
 
     // eslint-disable-next-line
   }, []);

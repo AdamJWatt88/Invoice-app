@@ -1,28 +1,28 @@
 {
   "invoices": [
     {
-      "isSave": false,
-      "items": [],
+      "id": "ML8096",
+      "createdAt": "",
+      "paymentDue": "",
+      "description": "",
+      "paymentTerms": null,
+      "clientName": "",
+      "clientEmail": "",
+      "status": "draft",
+      "senderAddress": {
+        "street": "",
+        "city": "",
+        "postCode": null,
+        "country": ""
+      },
       "clientAddress": {
         "street": "",
         "city": "",
         "postCode": null,
         "country": ""
       },
-      "senderAddress": {
-        "country": "United States",
-        "postCode": 92708,
-        "city": "Fountain Valley",
-        "street": "135 Pecan Lane"
-      },
-      "status": "draft",
-      "clientEmail": "",
-      "clientName": "",
-      "paymentTerms": null,
-      "description": "",
-      "paymentDue": "",
-      "createdAt": "",
-      "id": "TQ1610"
+      "items": [],
+      "isSave": false
     }
   ]
 }
