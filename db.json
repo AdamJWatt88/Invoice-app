@@ -1,3 +1,28 @@
 {
-  "invoices": []
+  "invoices": [
+    {
+      "id": "CD0732",
+      "createdAt": "",
+      "paymentDue": "",
+      "description": "",
+      "paymentTerms": null,
+      "clientName": "",
+      "clientEmail": "",
+      "status": "draft",
+      "senderAddress": {
+        "street": "1dsfg",
+        "city": "2sd",
+        "postCode": null,
+        "country": "Wallis & Futuna"
+      },
+      "clientAddress": {
+        "street": "",
+        "city": "",
+        "postCode": null,
+        "country": ""
+      },
+      "items": [],
+      "isSave": false
+    }
+  ]
 }
