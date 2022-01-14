@@ -14,19 +14,15 @@ const jsonServer = require("json-server");
 const app = jsonServer.create();
 const path = require("path");
 const express = require("express");
-const middlewares = jsonServer.defaults();
+const middlewares = jsonServer.defaults({ static: "build" });
 const router = jsonServer.router("db.json");
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json({ extended: true }));
-
-app.use(express.static(__dirname + "/build"));
-
 app.use("/invoices", middlewares, router);
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
+  // app.use(express.static("build"));
   app.get("*", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 }
 
