@@ -20,6 +20,8 @@ import {
   INVOICE_ERROR,
 } from "../../types";
 
+require("dotenv").config();
+
 const InvoicesState = (props) => {
   const initialState = {
     errorMsg: null,

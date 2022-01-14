@@ -1,28 +1,3 @@
 {
-  "invoices": [
-    {
-      "id": "ML8096",
-      "createdAt": "",
-      "paymentDue": "",
-      "description": "",
-      "paymentTerms": null,
-      "clientName": "",
-      "clientEmail": "",
-      "status": "draft",
-      "senderAddress": {
-        "street": "",
-        "city": "",
-        "postCode": null,
-        "country": ""
-      },
-      "clientAddress": {
-        "street": "",
-        "city": "",
-        "postCode": null,
-        "country": ""
-      },
-      "items": [],
-      "isSave": false
-    }
-  ]
+  "invoices": []
 }

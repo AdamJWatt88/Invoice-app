@@ -1,13 +1,14 @@
+require("dotenv").config();
 // const jsonServer = require("json-server");
 // const server = jsonServer.create();
 // const router = jsonServer.router("db.json");
 // const middlewares = jsonServer.defaults({ static: "build" });
-// const port = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
 // server.use(middlewares);
 // server.use(router);
 
-// server.listen(port);
+// server.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
 const jsonServer = require("json-server");
 const app = jsonServer.create();
@@ -15,13 +16,14 @@ const path = require("path");
 const express = require("express");
 const middlewares = jsonServer.defaults();
 const router = jsonServer.router("db.json");
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use("/", middlewares, router);
-app.use(express.static(path.join(__dirname, "build")));
+app.use("/invoices", middlewares, router);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "./build")));
+  app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "./build", "index.html"));
+  });
+}
 
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
-
-app.listen(port);
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
