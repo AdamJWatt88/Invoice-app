@@ -38,12 +38,13 @@ const PORT = process.env.PORT || 3000;
 // app.use("/", middlewares, router);
 app.use("/", router);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-  app.get("*", function (req, res) {
-    res.sendFile(path.resolve(__dirname + "build/index.html"));
-  });
-}
+app.use(express.static("build"));
+app.get("*", function (req, res) {
+  res.sendFile(path.resolve(__dirname + "build/index.html"));
+});
+// if (process.env.NODE_ENV === "production") {
+
+// }
 
 // app.get("/in", function (req, res) {
 //   res.sendFile(path.resolve(__dirname, "public", "index.html"));
