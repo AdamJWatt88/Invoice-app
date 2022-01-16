@@ -23,7 +23,7 @@ const jsonServer = require("json-server");
 const path = require("path");
 const express = require("express");
 const app = express();
-const middlewares = jsonServer.defaults();
+const middlewares = jsonServer.defaults({ static: "build" });
 const router = jsonServer.router("db.json");
 const PORT = process.env.PORT || 3000;
 
