@@ -17,17 +17,26 @@ require("dotenv").config();
 
 // server.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
+/* 
+TODO 
+1) try removing middlewares
+2) try adding "/invoices" as path with middlewares removed
+3) try "/" with middlewares 
+*/
+
 //! this code will not get the data from the database. the data that is retrieved is the html doc BUT this code does allow for the app to go to pages that are not found
 const jsonServer = require("json-server");
 // const app = jsonServer.create();
 const path = require("path");
 const express = require("express");
 const app = express();
+//! when static: "build" is removed from jsonServer.defaults() the page returns 404
 const middlewares = jsonServer.defaults();
 const router = jsonServer.router("db.json");
 const PORT = process.env.PORT || 3000;
 
-app.use("/", middlewares, router);
+// app.use("/", middlewares, router);
+app.use("/", router);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
