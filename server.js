@@ -23,17 +23,15 @@ const jsonServer = require("json-server");
 const path = require("path");
 const express = require("express");
 const app = express();
-const middlewares = jsonServer.defaults({ static: "build" });
+const middlewares = jsonServer.defaults();
 const router = jsonServer.router("db.json");
 const PORT = process.env.PORT || 3000;
 
 app.use("/", middlewares, router);
 
 if (process.env.NODE_ENV === "production") {
-  console.log("in production");
   app.use(express.static("build"));
   app.get("*", function (req, res) {
-    console.log("hit the any path");
     res.sendFile(path.resolve(__dirname + "build/index.html"));
   });
 }
