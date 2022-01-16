@@ -36,11 +36,12 @@ const app = express();
 const router = jsonServer.router("db.json");
 const PORT = process.env.PORT || 3000;
 
-app.use("/", express.static("build"), router);
+app.use("/invoices", express.static("build"), router);
 
 // app.use(express.static("build"));
+//! seems like this is the only problem left. it's this code that doesnt work to redirect to the index.html when the wroung url is input.
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname + "./build/index.html"));
+  res.sendFile(path.resolve(__dirname + "./build/index.html"));
 });
 // if (process.env.NODE_ENV === "production") {
 
