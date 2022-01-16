@@ -49,10 +49,10 @@ const InvoicesState = (props) => {
 
       console.log(res);
 
-      // dispatch({
-      //   type: FETCH_INVOICES,
-      //   payload: res.data,
-      // });
+      dispatch({
+        type: FETCH_INVOICES,
+        payload: res.data,
+      });
     } catch (error) {
       dispatch({
         type: INVOICE_ERROR,
