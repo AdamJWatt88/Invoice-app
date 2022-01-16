@@ -74,7 +74,7 @@ const Invoices = () => {
           : invoices.map((invoice) => {
               const { id, createdAt, clientName, total, status } = invoice;
               return (
-                <Link to={`/invoice/${id}`} key={id}>
+                <Link to={`/invoices/${id}`} key={id}>
                   <div className='invoices__invoice' id={id}>
                     <span className='invoices__invoice-id'>#{id}</span>
                     <span className='invoices__invoice-date'>{createdAt}</span>
