@@ -31,12 +31,8 @@ app.use("/", middlewares, router);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
-  app.get("*", function (req, res) {
+  app.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname, "build", "index.html"));
-  });
-
-  app.use(function (req, res, next) {
-    res.status(404).send("Sorry can't find that!");
   });
 }
 
