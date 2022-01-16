@@ -27,7 +27,7 @@ const middlewares = jsonServer.defaults({ static: "build" });
 const router = jsonServer.router("db.json");
 const PORT = process.env.PORT || 3000;
 
-app.use("/", middlewares, router);
+app.use("/invoices", middlewares, router);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));

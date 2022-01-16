@@ -30,7 +30,7 @@ const App = () => {
             <Router history={history}>
               <Switch>
                 <Route exact path='/' component={Invoices} />
-                <Route exact path='/invoice/:id' component={Invoice} />
+                <Route exact path='/invoices/:id' component={Invoice} />
                 <Route path='' component={NotFound} />
               </Switch>
             </Router>
