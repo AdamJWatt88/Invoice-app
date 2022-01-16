@@ -30,8 +30,10 @@ const PORT = process.env.PORT || 3000;
 app.use("/", middlewares, router);
 
 if (process.env.NODE_ENV === "production") {
+  console.log("in production");
   app.use(express.static("build"));
   app.get("*", function (req, res) {
+    console.log("hit the any path");
     res.sendFile(path.resolve(__dirname + "build/index.html"));
   });
 }
