@@ -38,7 +38,7 @@ const PORT = process.env.PORT || 3000;
 // app.use("/", middlewares, router);
 app.use("/", middlewares, router);
 
-app.use(express.static("build"));
+// app.use(express.static("build"));
 app.get("*", function (req, res) {
   res.sendFile(path.resolve(__dirname + "build/index.html"));
 });
