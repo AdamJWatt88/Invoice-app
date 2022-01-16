@@ -31,12 +31,12 @@ const path = require("path");
 const express = require("express");
 const app = express();
 //! when static: "build" is removed from jsonServer.defaults() the page returns 404
-const middlewares = jsonServer.defaults(static: "build");
+const middlewares = jsonServer.defaults({ static: "build" });
 const router = jsonServer.router("db.json");
 const PORT = process.env.PORT || 3000;
 
 // app.use("/", middlewares, router);
-app.use("/", router);
+app.use("/", middlewares, router);
 
 app.use(express.static("build"));
 app.get("*", function (req, res) {
