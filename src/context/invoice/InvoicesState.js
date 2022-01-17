@@ -46,6 +46,7 @@ const InvoicesState = (props) => {
       const res = await axios.get(
         `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}`
       );
+      // const res = await axios.get("http://localhost:3001/invoices");
 
       console.log(res);
 
