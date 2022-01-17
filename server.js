@@ -41,14 +41,10 @@ app.use(express.json({ extended: false }));
 // app.use("/", express.static("/public/index.html"), router);
 // app.use("/invoices", require("./routes/invoices"));
 
-//? this works but is commented out for now
-// app.use(express.static("build"));
-
 app.use("/", express.static("build", router));
 
 //! seems like this is the only problem left. it's this code that doesnt work to redirect to the index.html when the wroung url is input.
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build", router));
   app.get("*", function (req, res) {
     res.sendFile(path.resolve(__dirname + "/build/index.html"));
   });
