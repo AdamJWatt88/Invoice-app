@@ -42,6 +42,8 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(router);
+
 // app.use("/", express.static("/public/index.html"), router);
 // app.use("/invoices", require("./routes/invoices"));
 
@@ -54,14 +56,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 }
-
-// app.get("/in", function (req, res) {
-//   res.sendFile(path.resolve(__dirname, "public", "index.html"));
-//   if (res.status(404)) {
-// }
-// res.send("got it");
-//   res.sendFile(path.join(__dirname, "public", "index.html"));
-// });
 
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
 
