@@ -42,7 +42,7 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(router);
+app.use("/", router);
 app.use(express.static("build"));
 // app.use("/", express.static("/public/index.html"), router);
 // app.use("/invoices", require("./routes/invoices"));
