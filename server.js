@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use("/", express.static("/public/index.html"), router);
 // app.use("/invoices", require("./routes/invoices"));
 
-app.use("/", express.static("build"), router);
+// app.use("/", express.static("build"), router);
 
 //! seems like this is the only problem left. it's this code that doesnt work to redirect to the index.html when the wroung url is input.
 if (process.env.NODE_ENV === "production") {
