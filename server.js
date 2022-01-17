@@ -30,13 +30,17 @@ const jsonServer = require("json-server");
 const path = require("path");
 const express = require("express");
 const app = express();
+//! added this dont know if it stays
+const bodyParser = require("body-parser");
 //! when static: "build" is removed from jsonServer.defaults() the page returns 404
 //* using express.static("build") as the middlewares works
 // const middlewares = jsonServer.defaults({ static: "build" });
 const router = jsonServer.router("db.json");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-app.use(express.json({ extended: false }));
+//! added this dont know if it stays
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.use("/", express.static("/public/index.html"), router);
 // app.use("/invoices", require("./routes/invoices"));
@@ -45,8 +49,9 @@ app.use("/", express.static("build"), router);
 
 //! seems like this is the only problem left. it's this code that doesnt work to redirect to the index.html when the wroung url is input.
 if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "build")));
   app.get("*", function (req, res) {
-    res.sendFile(path.resolve(__dirname + "/build/index.html"));
+    res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 }
 
