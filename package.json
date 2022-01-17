@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "compile:sass": "node-sass src/sass/main.scss src/css/style.css -w",
     "local": "concurrently  \"react-scripts start\" \"json-server -p 3001 -w db.json\" ",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "eslintConfig": {
     "extends": [
