@@ -42,7 +42,11 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use("/", express.static("build"), router);
+app.use(express.static(path.join(__dirname, "build")));
+app.use(router);
+
+//* this works
+// app.use("/", express.static("build"), router);
 
 // app.use(router);
 // app.use(express.static("build"));
