@@ -54,7 +54,7 @@ app.use(
     "/api/*": "/$1",
   })
 );
-app.use("/invoices", router);
+app.use("/", router);
 
 //* this works
 // app.use("/", express.static("build"), router);
