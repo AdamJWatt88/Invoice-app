@@ -29,7 +29,7 @@ const Invoices = () => {
   const { openModal } = modalContext;
 
   useEffect(() => {
-    getInvoices();
+    // getInvoices();
     //eslint-disable-next-line
   }, []);
 
