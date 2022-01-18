@@ -49,6 +49,11 @@ app.use(express.static(path.join(__dirname, "build")));
 
 //? changing this to app.use("/invoices", router) fixes the 404 issues when hitting the wrong url but then doesnt server the data
 //! app.use("/invoices", router);
+app.use(
+  jsonServer.rewriter({
+    "/api/*": "/$1",
+  })
+);
 app.use("/invoices", router);
 
 //* this works
