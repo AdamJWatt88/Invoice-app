@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //* this works too
 app.use(express.static(path.join(__dirname, "build")));
-app.use(router);
+app.use("/invoices", router);
 
 //* this works
 // app.use("/", express.static("build"), router);
