@@ -46,7 +46,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //* this works too
 app.use(express.static(path.join(__dirname, "build")));
-app.use("/invoices", router);
+//? changing this to app.use("/invoices", router) fixes the 404 issues when hitting the wrong url but then doesnt server the data
+//! app.use("/invoices", router);
+app.use("/", router);
 
 //* this works
 // app.use("/", express.static("build"), router);
