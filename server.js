@@ -47,6 +47,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //* this works too
 app.use(express.static(path.join(__dirname, "build")));
 app.use(router);
+app.use(jsonServer.rewriter({
+  "/invoies/*" : "/$1"
+}))
 
 //* this works
 // app.use("/", express.static("build"), router);
