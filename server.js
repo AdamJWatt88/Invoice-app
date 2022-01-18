@@ -35,6 +35,7 @@ const bodyParser = require("body-parser");
 //! when static: "build" is removed from jsonServer.defaults() the page returns 404
 //* using express.static("build") as the middlewares works
 // const middlewares = jsonServer.defaults({ static: "build" });
+const middlewares = jsonServer.defaults();
 const router = jsonServer.router("db.json");
 //! changing to express.Router() did not fix issue. This just returned the html
 // const router = express.Router("db.json");
@@ -43,6 +44,8 @@ const PORT = process.env.PORT || 3001;
 //? added this dont know if it stays
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(middlewares);
 
 //* this works too
 app.use(express.static(path.join(__dirname, "build")));
