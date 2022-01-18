@@ -29,7 +29,7 @@ const App = () => {
             <Sidebar />
             <Router history={history}>
               <Switch>
-                <Route exact path='/invoices' component={Invoices} />
+                <Route exact path='/' component={Invoices} />
                 <Route exact path='/invoices/:id' component={Invoice} />
                 <Route path='' component={NotFound} />
               </Switch>
