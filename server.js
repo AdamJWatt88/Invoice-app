@@ -20,7 +20,7 @@ app.use(
   })
 );
 
-app.use("/api", jsonServer.router("db.json"));
+app.use("/", router));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "build")));
