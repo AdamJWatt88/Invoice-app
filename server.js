@@ -33,7 +33,7 @@ require("dotenv").config();
 
 const express = require("express");
 const jsonServer = require("json-server");
-
+const path = require("path");
 const server = express();
 
 const PORT = process.env.PORT;
