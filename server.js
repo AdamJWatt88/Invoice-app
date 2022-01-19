@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "build")));
 
 app.use(
   jsonServer.rewriter({
-    "/api/*": "/$1",
+    "/invoices/*": "/$1",
   })
 );
 
