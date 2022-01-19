@@ -31,7 +31,7 @@ const App = () => {
               <Switch>
                 <Route exact path='/' component={Invoices} />
                 <Route exact path='/invoices/:id' component={Invoice} />
-                {/* <Route path='' component={NotFound} /> */}
+                <Route path='' component={NotFound} />
               </Switch>
             </Router>
           </div>
