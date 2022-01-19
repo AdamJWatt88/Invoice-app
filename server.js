@@ -35,9 +35,11 @@ const express = require("express");
 const jsonServer = require("json-server");
 const path = require("path");
 const server = express();
+const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT;
-// ...
+
+server.use(bodyParser.json());
 
 // You may want to mount JSON Server on a specific end-point, for example /api
 // Optiona,l except if you want to have JSON Server defaults
