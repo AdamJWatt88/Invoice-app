@@ -1,60 +1,32 @@
 {
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@hookform/error-message": "^2.0.0",
-    "@hookform/resolvers": "^2.8.3",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.22.0",
-    "concurrently": "^7.0.0",
-    "dotenv": "^11.0.0",
-    "express": "^4.17.2",
-    "json-server": "^0.17.0",
-    "luxon": "^2.1.1",
-    "nodemon": "^2.0.15",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-hook-form": "^7.19.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "react-transition-group": "^4.4.2",
-    "uuid": "^8.3.2",
-    "web-vitals": "^1.1.2",
-    "yup": "^0.32.11"
-  },
+  "name": "invoice-app",
+  "version": "1.0.0",
+  "description": "This is a solution to the [Invoice app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl). Frontend Mentor challenges help you improve your coding skills by building realistic projects.",
+  "main": "server.js",
   "scripts": {
-    "proxy": "http://localhost:3001/",
+    "proxy": "http://localhost:3000/",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "compile:sass": "node-sass src/sass/main.scss src/css/style.css -w",
-    "local": "concurrently  \"react-scripts start\" \"json-server -p 3001 -w db.json\" ",
-    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdamJWatt88/Invoice-app.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdamJWatt88/Invoice-app/issues"
   },
-  "devDependencies": {
-    "node-sass": "^6.0.1"
+  "homepage": "https://github.com/AdamJWatt88/Invoice-app#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "config": "^3.3.7",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7",
+    "nodemon": "^2.0.15"
   }
 }

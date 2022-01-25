@@ -1,32 +1,30 @@
-require("dotenv").config();
-
-const jsonServer = require("json-server");
-const path = require("path");
 const express = require("express");
+const router = express.Router();
+const connectDB = require("./config/db");
+const path = require("path");
+
 const app = express();
-const bodyParser = require("body-parser");
-const router = jsonServer.router("db.json");
 
-const PORT = process.env.PORT || 3000;
+//Connect Database
+connectDB();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({ extended: false }));
 
-app.use(express.static(path.join(__dirname, "build")));
-
-app.use(
-  jsonServer.rewriter({
-    "/api/*": "/$1",
-  })
-);
+// Define Routes
+app.use("/api/invoices", require("./routes/invoices"));
 
 app.use("/", router);
 
+// Serve static assests in production
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "build")));
+  // Set static folder
+  app.use(express.static("client/build"));
+
   app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "build", "index.html"))
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
   );
 }
 
-app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

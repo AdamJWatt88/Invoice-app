@@ -1,0 +1,328 @@
+.slide {
+    position: absolute;
+    transform: translateX(toRem(88));
+    max-height: 100%;
+    height: 100vh;
+    width: toRem(631);
+    background-color: #fff;
+    border-top-right-radius: toRem(10);
+    border-bottom-right-radius: toRem(10);
+    padding: toRem(56) toRem(56) toRem(0) toRem(71);
+    z-index: 100;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    @include customScroll;
+
+    & input {
+        @include font12Bold;
+        padding: toRem(17) toRem(0) toRem(19) toRem(10);
+        min-width: 0;
+    }
+
+    @include respond(tab-port) {
+        transform: translateY(toRem(74));
+        left: 0;
+        top: 0;
+        width: 80%;
+        height: 90vh;
+        padding: toRem(56) toRem(56) toRem(0) toRem(56);
+    }
+
+    @include respond(phone) {
+        width: 100%;
+        padding: toRem(56) toRem(21) toRem(0) toRem(21);
+    }
+
+    &__heading {
+        font-size: toRem(24);
+        font-weight: $font-bold;
+        letter-spacing: -.0208em;
+        margin-bottom: toRem(56);
+    }
+
+    &__form-group {
+        margin-bottom: toRem(48);
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+
+            & > label {
+                @include font12Medium;
+                margin-bottom: toRem(15);
+                color: $color-glaucous;
+            }
+
+            & > select {
+                height: toRem(58);
+            }
+
+            &-error {
+                @include font12Bold;
+                margin-bottom: toRem(15);
+                margin-top: toRem(20);
+                color: $color-red-salsa;
+            }
+        }
+
+        &:nth-of-type(1) {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+
+            & > .slide__form-group-item:first-child {
+                flex: 1 1 100%;
+                margin-bottom: toRem(15);
+            }
+
+            & > .slide__form-group-item:not(:first-child) {
+                width: 30%;
+        
+                &:not(:last-child) {
+                    @include respond(phone) {
+                        width: 45%;
+                        margin-bottom: toRem(24);
+                    }
+                }
+            }
+
+            & > .slide__form-group-item:last-child {
+                @include respond(phone) {
+                    width: 100%;
+                }
+            }
+
+        }
+
+        &:nth-of-type(2) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+        
+            & > .slide__form-group-item:nth-child(-n+3) {
+                flex: 1 1 100%;
+                margin-bottom: toRem(15);
+            }
+
+            & > .slide__form-group-item:nth-child(n+4):nth-child(-n+6) {
+                width: 30%;
+            
+                &:not(:last-child) {
+                    @include respond(phone) {
+                        width: 45%;
+                        margin-bottom: toRem(24);
+                    }
+                }
+            }
+
+            & > .slide__form-group-item:last-child {
+                @include respond(phone) {
+                    flex: 1;
+                }
+            }
+        }
+
+        &:nth-of-type(3) {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+
+            & > .slide__form-group-item:nth-child(-n+2) {
+                width: 45%;
+                margin-bottom: toRem(15);
+
+                @include respond(phone) {
+                    width: 100%;
+                }
+            }
+
+            & > .slide__form-group-item:nth-child(2) {
+                & > select {
+                    padding: toRem(10);
+                }
+            }
+
+            & > .slide__form-group-item:nth-child(3) {
+                flex: 1 1 100%;
+            }
+        }
+    }
+
+    &__form-list {
+        width: 100%;
+
+        &-item {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr .5fr;
+            gap: toRem(16);
+            width: 100%;
+        
+            @include respond(phone) {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            &:not(:last-child) {
+                margin-bottom: toRem(18);
+            }
+        
+            &description {
+                grid-column: 1 / 1;
+                width: 100%;
+            }
+    
+            &-quantity {
+                width: 100%;
+                grid-column: 2 / 2;
+            }
+    
+            &-quantity::-webkit-outer-spin-button,
+            &-quantity::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+      
+            &-quantity[type=number] {
+                -moz-appearance: textfield;
+            }
+    
+            &-price {
+                width: 100%;
+                grid-column: 3 / 3;
+            }
+
+            &-price::-webkit-outer-spin-button,
+            &-price::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+      
+            &-price[type=number] {
+                -moz-appearance: textfield;
+            }
+    
+            &-total {
+                border: none;
+                margin-bottom: auto;
+                background-color: inherit;
+                color: $color-cool-grey;
+                @include font12Bold;
+                width: 100%;
+                grid-column: 4 / 4;
+                padding: toRem(17) toRem(20) toRem(19) toRem(5);
+            }
+    
+            &-icon {
+                width: toRem(12);
+                height: toRem(16);
+                transform: translate(0%, 260%);
+                margin-left: auto;
+                grid-column: 5 / 5;
+            }
+    
+            &-icon:hover {
+                cursor: pointer;                
+            }
+
+            @include respond (phone) {    
+                & > :nth-child(1) {
+                    flex: 1 1 100%;
+                    margin-bottom: toRem(24);
+                }
+
+                & > :not(:first-child) {
+                    flex-basis: 35%;            
+                }
+
+                & > :nth-child(4) {
+                    flex-basis: 10%;
+                }
+
+                & > :last-child {
+                    flex: 0;
+                }
+            }
+
+        }
+
+        &-heading-name {
+            @include font12Medium;
+            color: $color-glaucous;
+            grid-column: 1 / 1;
+        }
+    
+        &-heading-quantity {
+            @include font12Medium;
+            color: $color-glaucous;
+            grid-column: 2 / 2;
+        }
+    
+        &-heading-price {
+            @include font12Medium;
+            color: $color-glaucous;
+            grid-column: 3 / 3;
+        }
+    
+        &-heading-total {
+            @include font12Medium;
+            color: $color-glaucous;
+            grid-column: 4 / 4;
+        }
+
+        &-new-btn {
+            margin-top: toRem(18)
+        }
+    }
+
+    &__form-heading {
+        @include font12Bold;
+        color: $color-medium-slate-blue;
+        margin-bottom: toRem(27);
+    }
+
+    &__form-item-list-heading {
+        font-size: toRem(18);
+        font-weight: $font-bold;
+        margin-bottom: toRem(30);
+        color: #777F98;
+    }
+
+    &__form-list-new-btn {
+        width: 100%;
+        background-color: #F9FAFE;
+        color: $color-glaucous;
+    }
+
+    &__form-button-group {
+        display: flex;
+        width: 100%;
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        background-color: #fff;
+        padding: toRem(31) toRem(0);
+    }
+
+    &__form-btn-draft {
+        background-color: $color-draft;
+        color: $color-cool-grey;
+        margin-left: auto;
+        margin-right: toRem(8);
+    }
+
+    &__form-btn-send,
+    &__form-btn-save-changes {
+        background-color: $color-medium-slate-blue;
+        color: #fff;
+    }
+
+    &__form-btn-cancel {
+        margin-left: auto;
+        margin-right: toRem(8);
+    }
+
+}
