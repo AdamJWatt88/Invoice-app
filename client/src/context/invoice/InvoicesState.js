@@ -110,21 +110,23 @@ const InvoicesState = (props) => {
     }
   };
 
-  const editInvoice = async (id, invoiceForm, status) => {
+  const editInvoice = async (invoice) => {
     setLoading();
 
-    try {
-      // const devEnv = process.env.NODE_ENV !== "production";
-      // const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
-      // const res = await axios.patch(
-      //   `${devEnv ? REACT_APP_DEV_URL : REACT_APP_PROD_URL}/${id}`,
-      //   {
-      //     ...invoiceForm,
-      //     status: status,
-      //   }
-      // );
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-      const res = axios.put(`/api/invoices/${id}`);
+    try {
+      const res = await axios.put(
+        `/api/invoices/${invoice.id}`,
+        invoice,
+        config
+      );
+
+      console.log(res, "res inside action creator");
 
       dispatch({
         type: EDIT_INVOICE,

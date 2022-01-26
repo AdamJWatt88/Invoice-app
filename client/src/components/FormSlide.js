@@ -100,8 +100,8 @@ const FormSlide = () => {
     name: "items",
   });
 
-  const onSubmit = (data) => {
-    edit ? editInvoice(data.id, data, data.status) : newInvoice(data);
+  const onSubmit = (invoice) => {
+    edit ? editInvoice(invoice) : newInvoice(invoice);
 
     slideClose();
     clearInvoice();
