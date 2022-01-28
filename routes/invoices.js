@@ -85,9 +85,6 @@ router.put("/:id", async (req, res) => {
     total,
   } = req.body;
 
-  console.log(id, "req.body.id");
-  console.log(req.body, "req.body");
-
   const invoiceFields = {};
   if (id) invoiceFields.id = id;
   if (createdAt) invoiceFields.createdAt = createdAt;
@@ -98,41 +95,40 @@ router.put("/:id", async (req, res) => {
   if (clientEmail) invoiceFields.clientEmail = clientEmail;
   if (status) invoiceFields.status = status;
 
-  // if (senderAddress.street)
-  //   invoiceFields.senderAddress.street = senderAddress.street;
-  // if (senderAddress.city) invoiceFields.senderAddress.city = senderAddress.city;
-  // if (senderAddress.postCode)
-  //   invoiceFields.senderAddress.postCode = senderAddress.postCode;
-  // if (senderAddress.country)
-  //   invoiceFields.senderAddress.country = senderAddress.country;
+  if (senderAddress?.street)
+  //! this is returning undefined
+    // invoiceFields.senderAddress.street = senderAddress.street;
+    //! i cannot get this properly formed
+    // {...invoiceFields, { senderAddress: street }, senderAddress.street};
+  if (senderAddress?.city) invoiceFields.senderAddress.city = senderAddress.city;
+  if (senderAddress?.postCode)
+    invoiceFields.senderAddress.postCode = senderAddress.postCode;
+  if (senderAddress?.country)
+    invoiceFields.senderAddress.country = senderAddress.country;
 
-  // if (clientAddress.street)
-  //   invoiceFields.clientAddress.street = clientAddress.street;
-  // if (clientAddress.city) invoiceFields.clientAddress.city = clientAddress.city;
-  // if (clientAddress.postCode)
-  //   invoiceFields.clientAddress.postCode = clientAddress.postCode;
-  // if (clientAddress.country)
-  //   invoiceFields.clientAddress.country = clientAddress.country;
+  if (clientAddress?.street)
+    invoiceFields.clientAddress.street = clientAddress.street;
+  if (clientAddress?.city) invoiceFields.clientAddress.city = clientAddress.city;
+  if (clientAddress?.postCode)
+    invoiceFields.clientAddress.postCode = clientAddress.postCode;
+  if (clientAddress?.country)
+    invoiceFields.clientAddress.country = clientAddress.country;
 
   if (items) invoiceFields.items = items;
   if (total) invoiceFields.total = total;
 
   try {
-    //! i think this is not correctly finding and updating the correct invoice from MongoDb
-    let invoice = await Invoice.findById(req.params.id);
 
-    console.log(req.params.id, "req.params.id");
+    let invoice = await Invoice.find({id: req.params.id});
 
     if (!invoice) return res.status(404).json({ msg: "Invoice not found" });
 
-    //! i think this is not correctly finding and updating the correct invoice from MongoDb
-    invoice = await Invoice.findByIdAndUpdate(
-      req.params.id,
+    invoice = await Invoice.findOneAndUpdate(
+      {id: req.params.id},
       { $set: invoiceFields },
       { new: true }
     );
 
-    //? this is sending over null
     res.json(invoice);
   } catch (error) {
     console.error(error.message);
