@@ -43,7 +43,6 @@ const Invoice = ({ match }) => {
   };
 
   const renderInvoice = () => {
-    // if (invoice.hasOwnProperty("clientAddress")) {
     if (invoice?.clientAddress) {
       return (
         <div className='invoice-details'>
