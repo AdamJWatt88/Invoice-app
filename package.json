@@ -24,6 +24,7 @@
   "homepage": "https://github.com/AdamJWatt88/Invoice-app#readme",
   "dependencies": {
     "concurrently": "^7.0.0",
+    "config": "^3.3.7",
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
     "mongoose": "^6.1.7",
