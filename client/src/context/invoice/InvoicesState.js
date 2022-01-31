@@ -126,8 +126,6 @@ const InvoicesState = (props) => {
         config
       );
 
-      console.log(res, "res inside action creator");
-
       dispatch({
         type: EDIT_INVOICE,
         payload: res.data,

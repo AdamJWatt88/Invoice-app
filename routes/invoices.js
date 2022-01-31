@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
 
     const invoice = await newInvoice.save();
 
-    res.send(invoice);
+    res.json(invoice);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server Error");
@@ -70,53 +70,6 @@ router.delete("/:id", async (req, res) => {
 // @desc    Update an invoice
 // @access  Public
 router.put("/:id", async (req, res) => {
-  const {
-    id,
-    createdAt,
-    paymentDue,
-    description,
-    paymentTerms,
-    clientName,
-    clientEmail,
-    status,
-    senderAddress,
-    clientAddress,
-    items,
-    total,
-  } = req.body;
-
-  const invoiceFields = {};
-  if (id) invoiceFields.id = id;
-  if (createdAt) invoiceFields.createdAt = createdAt;
-  if (paymentDue) invoiceFields.paymentDue = paymentDue;
-  if (description) invoiceFields.description = description;
-  if (paymentTerms) invoiceFields.paymentTerms = paymentTerms;
-  if (clientName) invoiceFields.clientName = clientName;
-  if (clientEmail) invoiceFields.clientEmail = clientEmail;
-  if (status) invoiceFields.status = status;
-
-  if (senderAddress?.street)
-  //! this is returning undefined
-    // invoiceFields.senderAddress.street = senderAddress.street;
-    //! i cannot get this properly formed
-    // {...invoiceFields, { senderAddress: street }, senderAddress.street};
-  if (senderAddress?.city) invoiceFields.senderAddress.city = senderAddress.city;
-  if (senderAddress?.postCode)
-    invoiceFields.senderAddress.postCode = senderAddress.postCode;
-  if (senderAddress?.country)
-    invoiceFields.senderAddress.country = senderAddress.country;
-
-  if (clientAddress?.street)
-    invoiceFields.clientAddress.street = clientAddress.street;
-  if (clientAddress?.city) invoiceFields.clientAddress.city = clientAddress.city;
-  if (clientAddress?.postCode)
-    invoiceFields.clientAddress.postCode = clientAddress.postCode;
-  if (clientAddress?.country)
-    invoiceFields.clientAddress.country = clientAddress.country;
-
-  if (items) invoiceFields.items = items;
-  if (total) invoiceFields.total = total;
-
   try {
 
     let invoice = await Invoice.find({id: req.params.id});
@@ -125,7 +78,7 @@ router.put("/:id", async (req, res) => {
 
     invoice = await Invoice.findOneAndUpdate(
       {id: req.params.id},
-      { $set: invoiceFields },
+      { $set: req.body },
       { new: true }
     );
 
