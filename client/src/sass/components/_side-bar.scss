@@ -1,0 +1,113 @@
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: toRem(103);
+    background-color: $color-space-cadet-2;
+    border-top-right-radius: toRem(20);
+    border-bottom-right-radius: toRem(20);
+    z-index: 200;
+
+    @include respond(tab-port) { 
+        position: fixed;
+        width: 100%;
+        height: toRem(72);
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &__icon-bg {
+        position: relative;
+        padding: toRem(32);        
+        background: $color-medium-slate-blue; 
+        border-top-right-radius: toRem(20);
+        border-bottom-right-radius: toRem(20);
+        height: toRem(103);
+        width: 100%;
+
+        @include respond(tab-port) {
+            height: toRem(72);
+            width: toRem(72);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 50%;
+            width: 100%;
+            background: $color-medium-purple;
+            border-top-left-radius: toRem(20);
+            border-bottom-right-radius: toRem(20);
+        }
+
+    }
+
+    &__logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 200;
+        width: toRem(40);
+    }
+
+    &__moon-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        border-bottom: solid 1px #494E6E;
+        margin-top: auto;
+        margin-bottom: toRem(24);
+        padding-bottom: toRem(32);
+
+        @include respond(tab-port) {
+            border-right: solid 1px #494E6E;
+            align-items: center;
+            margin-left: auto;
+            width: toRem(30);
+            height: 100%;
+            margin-bottom: toRem(0);
+            padding-bottom: toRem(0);
+            padding: toRem(30);
+        }
+    }
+    
+    &__moon {
+        width: toRem(20);
+        opacity: 1;
+        transition: all .2s;
+        
+        &:hover{
+            cursor: pointer;
+            transform: translateY(-2px) scale(1.1);
+        }
+
+        &--transition {
+            animation: moveDown .5s;
+        }
+
+    }
+
+    &__portrait {
+        border-radius: 100%;
+        margin-bottom: toRem(24);
+        width: toRem(40);
+
+        @include respond(tab-port) {
+            margin-bottom: 0;
+            margin: toRem(24) toRem(32);
+        }
+
+
+    }
+}
+

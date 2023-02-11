@@ -1,0 +1,26 @@
+.status-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: toRem(15);
+    border-radius: 8px;
+    @include font12Bold;
+
+    &--paid {
+        @include statusBeforeEl($color-paid);
+        @include statusBg($color-paid);
+        color: $color-paid;
+    }
+
+    &--pending {
+        @include statusBeforeEl($color-dark-orange);
+        @include statusBg($color-dark-orange);
+        color: $color-dark-orange;
+    }
+
+    &--draft {
+        @include statusBeforeEl($color-draft);
+        @include statusBg($color-draft);
+        color: $color-draft;   
+    }
+}

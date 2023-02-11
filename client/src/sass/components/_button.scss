@@ -1,0 +1,37 @@
+.btn {
+    cursor: pointer;
+    transition: all .2s;
+    padding: toRem(17) toRem(24) toRem(19) toRem(24);
+    border-radius: toRem(24);
+    border-style: none;
+    color: #fff;
+    @include font12Bold;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0px 0px 2px rgba(0,0,0, .4);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &--red {
+        background-color: $color-red-salsa;
+    }
+
+    &--purple {
+        background-color: $color-medium-slate-blue;
+    }
+
+    &--white {
+        background-color: #F9FAFE;
+        color: $color-glaucous;
+    }
+
+    &--black {
+        background-color: $color-space-cadet-2;
+        color: $color-lavender-web;
+    }
+
+}

@@ -1,0 +1,42 @@
+@keyframes moveDown {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    
+}
+
+.slide-item-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.slide-item-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.slide-item-enter-done {
+  transform: translateX(0%);
+}
+
+.slide-item-exit {
+  opacity: 1;
+}
+
+.slide-item-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 500ms, transform 500ms;
+}

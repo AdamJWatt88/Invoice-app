@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html,
+body {
+    position: relative;
+    background-color: $color-cultered;
+    box-sizing: border-box;
+    color: $color-rich-black-fogra;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}

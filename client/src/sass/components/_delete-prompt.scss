@@ -1,0 +1,35 @@
+.delete-prompt {
+    background-color: #fff;
+    padding: toRem(48);
+    border-radius: toRem(8);
+    width: toRem(480);
+
+    @include respond(phone) {
+        padding: toRem(32);
+        width: 87%;
+    }
+
+    &__heading {
+        font-size: toRem(24);
+        font-weight: $font-bold;
+        letter-spacing: -.0208em;
+        margin-bottom: toRem(21);
+    }
+
+    &__body {
+        @include font12Medium;
+        color: $color-cool-grey;
+        margin-bottom: toRem(26);
+    }
+
+    &__button-group {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__btn-delete {
+        margin-left: toRem(8);
+        color: #fff;
+        background-color: $color-red-salsa;
+    }
+}

@@ -1,0 +1,85 @@
+@mixin respond($breakpoint) {
+    // 600px
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+            @content
+        }
+    }
+    // 900px
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {
+            @content
+        }
+    }
+    // 1200px
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {
+            @content
+        }
+    }
+    // 1800px
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {
+            @content
+        }
+    }
+}
+
+@mixin font12Medium {
+    font-size: toRem(12);
+    font-weight: $font-medium;
+    letter-spacing: -.0208em;
+}
+
+@mixin font12Bold {
+    font-size: toRem(12);
+    font-weight: $font-bold;
+    letter-spacing: -.0208em;
+}
+
+@mixin font16Bold {
+    font-size: toRem(16);
+    font-weight: $font-bold;
+    letter-spacing: -.0208em;
+}
+
+@mixin statusBeforeEl($color) {
+    &::before {
+        content: "";
+        display: block;
+        background-color: $color;
+        border-radius: 100px;
+        margin-right: 8px;
+        height: 8px;
+        width: 8px;
+    }
+}
+
+@mixin statusBg($color) {
+    background-color: rgba($color, .1);   
+}
+
+@mixin boxShadow {
+    box-shadow: 0px 0px 5px rgba(0,0,0, .2);
+}
+
+@mixin customScroll {
+    &::-webkit-scrollbar {
+        width: toRem(10);
+    }
+  
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 toRem(2)$color-cool-grey;
+        border-radius: toRem(10);
+        
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $color-medium-purple; 
+        border-radius: toRem(10);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $color-medium-slate-blue; 
+    }
+}

@@ -1,0 +1,114 @@
+.invoice-total {
+    margin-top: toRem(52);
+    background-color: #F9FAFE;
+    padding: toRem(32) toRem(32) toRem(8) toRem(32);
+    
+    &-container {
+        margin-top: auto;
+    }
+    
+    &__headers {
+        display: flex;
+        width: 100%;
+        
+        & > h4 {
+            color: $color-glaucous;
+            @include font12Medium;
+        }
+
+        &-name {
+            flex: 3;
+        }
+
+        &-qty {
+            flex: 1;
+            text-align: center;
+        }
+
+        &-price {
+            flex: 1;
+            text-align: center;
+        }
+
+        &-total {
+            flex: 1;
+            text-align: right;
+        }
+
+    }
+
+    &__invoice {
+        display: flex;
+        width: 100%;
+        padding: toRem(35) toRem(0);
+        @include font12Bold;
+        
+        @include respond(phone) {
+            flex-wrap: wrap;
+            height: toRem(35);
+            padding: 0px 0px;
+            margin-bottom: toRem(54);
+        }
+
+        &-name {
+            flex: 3;
+            text-align: left;
+
+            @include respond(phone) {
+                flex: 1 1 50%;
+            }
+        }
+
+        &-qty {
+            flex: 1;
+            text-align: center;
+            color: $color-glaucous;
+
+            @include respond(phone) {
+                flex: 1 1 50%;
+                text-align: left;
+                padding-top: 10px;
+                order: 3;
+            }
+        }
+
+        &-price {
+            flex: 1;
+            text-align: center;
+            color: $color-glaucous;
+        }
+
+        &-total {
+            flex: 1;
+            text-align: right;
+
+            @include respond(phone) {
+                flex: 1 1 50%;
+                padding-top: 15px;
+            }
+        }
+    }
+}
+
+.amount-due {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: $color-draft;
+    padding: toRem(24) toRem(32);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: #fff;
+
+    & > h2 {
+        @include font12Medium;
+        
+    }
+
+    & > span {
+        margin-left: auto;
+        font-weight: $font-bold;
+        font-size: toRem(24);
+        letter-spacing: -.0208em;
+    }
+}

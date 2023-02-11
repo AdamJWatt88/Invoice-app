@@ -1,0 +1,36 @@
+.back-btn {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    @include font12Bold;
+    color: inherit;
+    
+
+    & img {
+        margin-right: toRem(23);
+    }
+
+&::before {
+    content: "";
+        position: absolute;
+        right: 30%;
+        transform: translateX(50%);
+        bottom: -30%;
+        display: inline-block;
+        height: toRem(5);
+        width: 0%;
+        opacity: 0;
+        transition: all .2s;
+        background-color: $color-medium-slate-blue;
+        border-radius: toRem(50);
+    }
+
+    &:hover::before {
+        width: 60%;
+        opacity: 1;
+    }
+
+}
+
+
+

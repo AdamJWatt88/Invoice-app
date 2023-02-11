@@ -1,0 +1,94 @@
+.theme-dark {
+
+        & body,
+        & .slide,
+        & .slide__form-button-group {
+            background-color: $color-xiketic;
+        }
+
+        & .status-badge--draft::before {
+            background-color: $color-lavender-web;
+        }
+
+        & .status-badge--draft {
+            background-color: #292D45;
+        }
+
+        & .side-bar,
+        & .invoice-status-bar__filter-menu,
+        & .invoices__invoice,
+        & .status-edit-bar,
+        & .status-edit-bar__btn-group,
+        & .invoice,
+        & .delete-prompt,
+        & .empty-items-prompt {
+            background-color: $color-space-cadet-1;
+        }
+
+        & .status-edit-bar__btn-group > .btn--white,
+        & .invoice-total,
+        & .slide__form-list-new-btn,
+        & .delete-prompt__btn-cancel,
+        & .empty-items-prompt__btn-close {
+            background-color: $color-space-cadet-2;
+        }
+
+        & .amount-due {
+            background-color: $color-rich-black-fogra;
+        }
+
+        & .invoice-status-bar__invoices-heading + p,
+        & .invoices__invoice-date,
+        & .status-edit-bar__btn-group > .btn--white,
+        & .status-edit-bar__status > h3,
+        & .status-badge--draft,
+        & .invoice-details__heading,
+        & .invoice-details__sender,
+        & .invoice-details__client > p,
+        & .invoice-total__headers > h4,
+        & .invoice-total__invoice-qty,
+        & .invoice-total__invoice-price,
+        & .slide__form-group-item > label,
+        & .slide__form-list-heading-name,
+        & .slide__form-list-heading-quantity,
+        & .slide__form-list-heading-price,
+        & .slide__form-list-heading-total,
+        & .slide__form-list-item-total,
+        & .slide__form-list-new-btn,
+        & .slide__form-btn-draft,
+        & .delete-prompt__body,
+        & .delete-prompt__btn-cancel,
+        & .empty-items-prompt__body,
+        & .empty-items-prompt__btn-close, {
+            color: $color-lavender-web;
+        }
+
+        & body,
+        & .invoices__invoice-name {
+                color: #fff;
+        }
+
+        & .slide input,
+        & .slide__form-group-item > select {
+            background-color: $color-space-cadet-1;
+            border: none;
+            color: #fff;
+        }
+
+        & .slide input:-webkit-autofill,
+        & .slide input:-webkit-autofill:hover, 
+        & .slide input:-webkit-autofill:focus, 
+        & .slide input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px $color-space-cadet-1 inset !important;
+            -webkit-text-fill-color: #fff !important;
+        }
+
+        ::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+        
+}
+
+
+
