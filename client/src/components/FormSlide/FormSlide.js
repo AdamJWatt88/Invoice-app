@@ -59,8 +59,6 @@ const FormSlide = () => {
 
   // when an invoice is new set the value of id to a random id number.
   // when an invoice is being edited setValue to the already given id then repopulate the useFieldArray state from the invoice object
-  // TODO
-  //! When edit is selected the items are duplicated and added to the fields state
   useEffect(() => {
     if (createInvoice) {
       setValue("id", generateId());
