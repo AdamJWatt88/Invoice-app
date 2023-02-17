@@ -16,7 +16,6 @@ const ListItem = ({
   watch,
   errors,
   key,
-  control,
   ...rest
 }) => {
   const nodeRef = useRef(null);
@@ -51,7 +50,6 @@ const ListItem = ({
           className='description'
           inputRegister={`items.${index}.description`}
           register={register}
-          control={control}
           children={
             <ErrorMessage
               errors={errors}
@@ -73,7 +71,6 @@ const ListItem = ({
           className='quantity'
           inputRegister={`items.${index}.quantity`}
           register={register}
-          control={control}
           children={
             <ErrorMessage
               errors={errors}
@@ -93,7 +90,6 @@ const ListItem = ({
           className='price'
           inputRegister={`items.${index}.price`}
           register={register}
-          control={control}
           children={
             <ErrorMessage
               errors={errors}

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 
-import FormSlide from "./FormSlide/FormSlide";
+// import FormSlide from "./FormSlide/FormSlide";
+import FormSlide from "./FormSlide/FormSlideCopy";
 import DeletePrompt from "./DeletePrompt";
 
 import ModalContext from "../context/modal/ModalContext";

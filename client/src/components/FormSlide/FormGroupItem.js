@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormGroupItem({
+const FormGroupItem = ({
   labelFor,
   labelTitle,
   inputType,
@@ -11,7 +11,7 @@ function FormGroupItem({
   selectInput,
   optionTitle,
   disabled,
-}) {
+}) => {
   return (
     <div className='slide__form-group-item'>
       <label htmlFor={labelFor}>{labelTitle}</label>
@@ -29,6 +29,6 @@ function FormGroupItem({
       <p className='slide__form-group-item-error'>{errorMessage}</p>
     </div>
   );
-}
+};
 
 export default FormGroupItem;
